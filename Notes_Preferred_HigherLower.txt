@@ -1,0 +1,180 @@
+Enhance the XY Scatter Bubble Chart page with advanced functionality, full metric support, and user clarity:
+
+- **Metric Direction Indicators**:  
+  - Append ↑ (higher is better) or ↓ (lower is better) to each metric in dropdowns (e.g., “Revenue ↑”, “Debt ↓”) using green (↑) or red (↓) arrows/icons.  
+  - Update axis labels to include metric name, unit, and direction (e.g., “Market Cap ($M) ↑”). BUT If the axis title is vertical (Y)  the arrow needs to point up for higher, and down for lower. For the X axis titles higher is to the right etc  
+
+
+- **Full Metric List**: Include all metrics below, grouped in dropdowns, with descriptions and directions:  
+  - **Top-Level**:  
+    - `percent_gold`: % gold in output/resources, ↑ (gold value).  
+    - `percent_silver`: % silver in output/resources, ↑ (silver value).  
+    - `share_price`: Stock price ($), ↑ (market strength).  
+  - **Financials**:  
+    - `cash_value`: Cash ($M), ↑ (liquidity).  
+    - `market_cap_value`: Market cap ($M), ↑ (size).  
+    - `enterprise_value_value`: EV ($M), ↑ (valuation).  
+    - `net_financial_assets`: Assets - liabilities ($M), ↑ (health).  
+    - `free_cash_flow`: Free cash ($M), ↑ (profit).  
+    - `price_to_book`: P/B ratio, ↓ (undervaluation).  
+    - `price_to_sales`: P/S ratio, ↓ (value).  
+    - `enterprise_to_revenue`: EV/revenue, ↓ (efficiency).  
+    - `enterprise_to_ebitda`: EV/EBITDA, ↓ (valuation).  
+    - `trailing_pe`: Trailing P/E, ↓ (past value).  
+    - `forward_pe`: Forward P/E, ↓ (future value).  
+    - `revenue_value`: Revenue ($M), ↑ (income).  
+    - `ebitda`: EBITDA ($M), ↑ (profit).  
+    - `net_income_value`: Net income ($M), ↑ (success).  
+    - `debt_value`: Debt ($M), ↓ (risk).  
+    - `shares_outstanding`: Shares (M), ↓ (dilution).  
+  - **Capital Structure**:  
+    - `existing_shares`: Current shares (M), ↓ (concentration).  
+    - `fully_diluted_shares`: Diluted shares (M), ↓ (dilution).  
+    - `in_the_money_options`: Profitable options (M), ↓ (risk).  
+    - `options_revenue`: Options revenue ($M), ↑ (income).  
+  - **Mineral Estimates**:  
+    - `reserves_total_aueq_moz`: Reserves (moz), ↑ (assets).  
+    - `measured_indicated_total_aueq_moz`: M&I resources (moz), ↑ (potential).  
+    - `resources_total_aueq_moz`: Total resources (moz), ↑ (scale).  
+    - `potential_total_aueq_moz`: Potential resources (moz), ↑ (upside).  
+    - `reserves_precious_aueq_moz`: Precious reserves (moz), ↑ (value).  
+    - `measured_indicated_precious_aueq_moz`: Precious M&I (moz), ↑ (potential).  
+    - `resources_precious_aueq_moz`: Precious resources (moz), ↑ (value).  
+  - **Valuation Metrics**:  
+    - `ev_per_resource_oz_all`: EV/resource oz ($/oz), ↓ (value).  
+    - `ev_per_reserve_oz_all`: EV/reserve oz ($/oz), ↓ (value).  
+    - `mkt_cap_per_resource_oz_all`: Mkt cap/resource oz ($/oz), ↓ (value).  
+    - `mkt_cap_per_reserve_oz_all`: Mkt cap/reserve oz ($/oz), ↓ (value).  
+    - `ev_per_resource_oz_precious`: EV/precious resource oz ($/oz), ↓ (value).  
+    - `ev_per_reserve_oz_precious`: EV/precious reserve oz ($/oz), ↓ (value).  
+    - `mkt_cap_per_resource_oz_precious`: Mkt cap/precious resource oz ($/oz), ↓ (value).  
+    - `mkt_cap_per_reserve_oz_precious`: Mkt cap/precious reserve oz ($/oz), ↓ (value).  
+  - **Production**:  
+    - `current_production_total_aueq_koz`: Current prod (koz), ↑ (output).  
+    - `future_production_total_aueq_koz`: Future prod (koz), ↑ (growth).  
+    - `reserve_life_years`: Reserve life (years), ↑ (longevity).  
+    - `current_production_precious_aueq_koz`: Precious prod (koz), ↑ (value).  
+    - `current_production_non_precious_aueq_koz`: Non-precious prod (koz), ↑ (output).  
+  - **Costs**:  
+    - `aisc_future`: Future AISC ($/oz), ↓ (efficiency).  
+    - `construction_costs`: Construction costs ($M), ↓ (efficiency).  
+    - `tco_future`: Future total cash costs ($/oz), ↓ (profit).  
+    - `aisc_last_quarter`: Last quarter AISC ($/oz), ↓ (performance).  
+    - `aisc_last_year`: Last year AISC ($/oz), ↓ (efficiency).  
+
+- **Tier Access**:  
+  - Restrict metrics by tier: Basic (e.g., `cash_value`, `current_production_total_aueq_koz`), Pro (e.g., `reserves_total_aueq_moz`, `price_to_book`), Enterprise (e.g., `ev_per_resource_oz_all`, `aisc_future`).  
+  - Gray out restricted metrics in dropdowns (e.g., `text-navy-300 opacity-50`) with a lock icon (e.g., 🔒) and tooltip (e.g., “Upgrade to Enterprise for EV/Resource Oz”).  
+  - Add an upgrade banner below the chart (e.g., “Unlock advanced metrics with Pro” in `bg-emerald-500 text-surface-white p-4`).  
+
+- **Interactivity**:  
+  - Tooltips on hover showing company name, X/Y/size values, units, and direction (e.g., styled `bg-navy-700 text-surface-white p-2`).  
+  - Optional zoom/pan controls (e.g., `+`, `-`, reset buttons in `bg-navy-600 text-surface-white p-2`) in the bottom-right corner.  
+  - Legend below the chart detailing axes, bubble size, and colors (e.g., `border-navy-300 bg-navy-500 text-surface-white p-4`).  
+
+
+Top-Level Metrics
+percent_gold: Percentage of production/resources as gold. Higher is better (↑) for gold-focused investors.  
+
+percent_silver: Percentage of production/resources as silver. Higher is better (↑) for silver-focused investors.  
+
+share_price: Current stock price in selected currency. Higher is better (↑) as a sign of market strength.
+
+Financials
+cash_value: Cash reserves ($M). Higher is better (↑) for financial flexibility.  
+
+market_cap_value: Market capitalization ($M). Higher is better (↑) for company scale.  
+
+enterprise_value_value: Market cap + debt - cash ($M). Higher is better (↑) for total valuation.  
+
+net_financial_assets: Assets minus liabilities ($M). Higher is better (↑) for net worth.  
+
+free_cash_flow: Cash after operating expenses ($M). Higher is better (↑) for profitability.  
+
+price_to_book: Share price vs. book value. Lower is better (↓) for undervaluation.  
+
+price_to_sales: Share price vs. revenue. Lower is better (↓) for value.  
+
+enterprise_to_revenue: EV vs. revenue. Lower is better (↓) for efficiency.  
+
+enterprise_to_ebitda: EV vs. EBITDA. Lower is better (↓) for valuation.  
+
+trailing_pe: Trailing price-to-earnings ratio. Lower is better (↓) for past value.  
+
+forward_pe: Forward price-to-earnings ratio. Lower is better (↓) for future value.  
+
+revenue_value: Annual revenue ($M). Higher is better (↑) for income strength.  
+
+ebitda: Earnings before interest, taxes, etc. ($M). Higher is better (↑) for operating profit.  
+
+net_income_value: Net profit ($M). Higher is better (↑) for bottom-line success.  
+
+debt_value: Total debt ($M). Lower is better (↓) for reduced risk.  
+
+shares_outstanding: Issued shares (millions). Lower is better (↓) to minimize dilution.
+
+Capital Structure
+existing_shares: Current shares outstanding (millions). Lower is better (↓) for ownership concentration.  
+
+fully_diluted_shares: Shares including options/warrants (millions). Lower is better (↓) for future dilution.  
+
+in_the_money_options: Profitable exercisable options (millions). Lower is better (↓) for dilution risk.  
+
+options_revenue: Revenue from options ($M). Higher is better (↑) for extra income.
+
+Mineral Estimates
+reserves_total_aueq_moz: Gold-equivalent reserves (million ounces). Higher is better (↑) for asset base.  
+
+measured_indicated_total_aueq_moz: Measured/indicated resources (moz). Higher is better (↑) for potential.  
+
+resources_total_aueq_moz: Total resources (moz). Higher is better (↑) for scale.  
+
+potential_total_aueq_moz: Potential resources (moz). Higher is better (↑) for upside.  
+
+reserves_precious_aueq_moz: Precious metal reserves (moz). Higher is better (↑) for value.  
+
+measured_indicated_precious_aueq_moz: Precious measured/indicated (moz). Higher is better (↑).  
+
+resources_precious_aueq_moz: Precious total resources (moz). Higher is better (↑).
+
+Valuation Metrics
+ev_per_resource_oz_all: EV per resource ounce ($/oz). Lower is better (↓) for undervaluation.  
+
+ev_per_reserve_oz_all: EV per reserve ounce ($/oz). Lower is better (↓).  
+
+mkt_cap_per_resource_oz_all: Market cap per resource ounce ($/oz). Lower is better (↓).  
+
+mkt_cap_per_reserve_oz_all: Market cap per reserve ounce ($/oz). Lower is better (↓).  
+
+ev_per_resource_oz_precious: EV per precious resource ounce ($/oz). Lower is better (↓).  
+
+ev_per_reserve_oz_precious: EV per precious reserve ounce ($/oz). Lower is better (↓).  
+
+mkt_cap_per_resource_oz_precious: Market cap per precious resource ounce ($/oz). Lower is better (↓).  
+
+mkt_cap_per_reserve_oz_precious: Market cap per precious reserve ounce ($/oz). Lower is better (↓).
+
+Production
+current_production_total_aueq_koz: Current production (thousand ounces). Higher is better (↑) for output.  
+
+future_production_total_aueq_koz: Projected production (koz). Higher is better (↑) for growth.  
+
+reserve_life_years: Years of reserves at current production. Higher is better (↑) for longevity.  
+
+current_production_precious_aueq_koz: Precious metal production (koz). Higher is better (↑).  
+
+current_production_non_precious_aueq_koz: Non-precious production (koz). Higher is better (↑).
+
+Costs
+aisc_future: Future all-in sustaining costs ($/oz). Lower is better (↓) for efficiency.  
+
+construction_costs: Project construction costs ($M). Lower is better (↓) for capital efficiency.  
+
+tco_future: Future total cash costs ($/oz). Lower is better (↓) for profitability.  
+
+aisc_last_quarter: AISC last quarter ($/oz). Lower is better (↓) for recent performance.  
+
+aisc_last_year: AISC last year ($/oz). Lower is better (↓) for historical efficiency.
+
+
+
